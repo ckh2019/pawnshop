@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ckh2019.pawnshop.commons.mapper.GoodsMapper">
+    <!--    @TableId
+    private String gid;
+
+    private String name;
+
+    @TableField("putawayDate")
+    private Date putawayDate;
+
+    @TableField("goodsPhoto")
+    private String goodsPhoto;
+
+    /**
+     * 商户id
+     */
+    private Integer bid;-->
+    <select id="queryGoodsByAnd" resultType="goods">
+        select * from goods
+        <where>
+            <if test="gid!=null and gid!=''">
+                and gid = #{gid}
+            </if>
+            <if test="name!=null and name!=''">
+                and name = #{name}
+            </if>
+            <if test="bid!=null and bid!=''">
+                and bid = #{bid}
+            </if>
+            <if test="status!=null">
+                and status = #{status}
+            </if>
+        </where>
+        order by putawayDate desc
+    </select>
+
+</mapper>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ckh2019.pawnshop.commons.mapper.BusinessMapper">
+    <!--@Id
+    private Integer bid;
+
+    private String phone;
+
+    private String corporation;
+
+    private String credit;
+
+    private String email;
+
+    @TableField("publishDate")
+    private String creditPhoto;
+
+    @TableField("idCardPhoto")
+    private String idCardPhoto;
+
+    private Integer status;-->
+    <select id="queryBusinessByAnd" resultType="business">
+        select * from business
+        <where>
+            <if test="bid!=null">
+                and uid = #{uid}
+            </if>
+            <if test="phone!=null and phone!=''">
+                and phone = #{phone}
+            </if>
+            <if test="corporation!=null and corporation!=''">
+                and corporation = #{corporation}
+            </if>
+            <if test="credit!=null and credit!=''">
+                and credit = #{credit}
+            </if>
+            <if test="email!=null and email!=''">
+                and email = #{email}
+            </if>
+            <if test="publishDate!=null and publishDate!=''">
+                and publishDate = #{publishDate}
+            </if>
+            <if test="idCardPhoto!=null and idCardPhoto!=''">
+                and idCardPhoto = #{idCardPhoto}
+            </if>
+            <if test="status!=null">
+                and status = #{status}
+            </if>
+        </where>
+    </select>
+
+</mapper>

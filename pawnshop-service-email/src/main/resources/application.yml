@@ -1,0 +1,80 @@
+spring:
+  application:
+    name: pawnshop-service-user-consumer
+  thymeleaf:
+    cache: false
+    mode: LEGACYHTML5
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+  session:
+    store-type: redis
+    timeout: 3600s
+    redis:
+      flush-mode: on_save
+      namespace: spring:session
+  redis:
+    database: 0
+    host: 129.211.17.8
+    port: 6379
+    password:
+    pool:
+      jedis:
+        max-active: 200
+        max-wait: -1
+        max-idle: 10
+        min-idle: 0
+    timeout: 1000
+
+server:
+  port: 8601
+
+services:
+  versions:
+    user:
+      v1: 1.0
+
+#dubbo
+dubbo:
+  scan:
+    basePackages: cn.ckh2019.pawnshop.service.user.consumer.controller
+  application:
+    id: pawnshop-service-user-consumer
+    name: pawnshop-service-user-consumer
+  protocol:
+    id: dubbo
+    name: dubbo
+    serialization: kryo
+  registry:
+    id: zookeeper
+    address: zookeeper://129.211.17.8:2181
+
+
+endpoints:
+  dubbo:
+    enabled: true
+
+management:
+  server:
+    port: 8701
+  endpoint:
+    dubbo:
+      enabled: true
+    dubbo-shutdown:
+      enabled: true
+    dubbo-configs:
+      enabled: true
+    dubbo-services:
+      enabled: true
+    dubbo-references:
+      enabled: true
+    dubbo-properties:
+      enabled: true
+  health:
+    dubbo:
+      status:
+        default: memory
+  endpoints:
+    web:
+      exposure:
+        include: "*"

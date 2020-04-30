@@ -1,0 +1,67 @@
+spring:
+  application:
+    name: pawnshop-service-cms
+  data:
+    mongodb:
+      host: localhost
+      database: test
+  rabbitmq:
+    host: 129.211.17.8
+    port: 5672
+    username: admin
+    password: admin
+
+server:
+  port: 8502
+
+services:
+  versions:
+    user:
+      v1: 1.0
+
+
+
+#dubbo
+dubbo:
+  scan:
+    basePackages: cn.ckh2019.pawnshop.service.user.consumer.controller
+  application:
+    id: pawnshop-service-user-consumer
+    name: pawnshop-service-user-consumer
+  protocol:
+    id: dubbo
+    name: dubbo
+    serialization: kryo
+  registry:
+    id: zookeeper
+    address: zookeeper://129.211.17.8:2181
+
+
+endpoints:
+  dubbo:
+    enabled: true
+
+management:
+  server:
+    port: 8701
+  endpoint:
+    dubbo:
+      enabled: true
+    dubbo-shutdown:
+      enabled: true
+    dubbo-configs:
+      enabled: true
+    dubbo-services:
+      enabled: true
+    dubbo-references:
+      enabled: true
+    dubbo-properties:
+      enabled: true
+  health:
+    dubbo:
+      status:
+        default: memory
+  endpoints:
+    web:
+      exposure:
+        include: "*"

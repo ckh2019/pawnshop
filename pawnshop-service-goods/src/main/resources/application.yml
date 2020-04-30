@@ -1,0 +1,18 @@
+server:
+  port: ${PORT:8502}
+
+spring:
+  application:
+    name: pawnshop-service-cms
+
+eureka:
+  client:
+    register-with-eureka: true # 服务注册,是否将自己注册到Rureka服务中
+    fetch-registry: true   #服务发现
+    serviceUrl:     # Eureka客户端和 Eureka服务端的交互地址,高可用状态配置对方的地址,单机状态配置自己的地址
+      defaultZone: ${EUREKA_SERVER:http://cloud.ckh.com:8402/eureka/,http://www.ckh.com:8401/eureka/}
+  instance:
+    prefer-ip-address: true # 将自己ip注册到 Eureka 服务中
+    ip-address: ${IP_ADDRESS:127.0.0.1}
+    instance-id: ${spring.application.name}:${server.port}
+
