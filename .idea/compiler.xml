@@ -1,8 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="pawnshop-service-user-provider" />
+        <module name="pawnshop-datebases" />
+        <module name="pawnshop-service-user-api" />
+        <module name="pawnshop-service-goods" />
+        <module name="pawnshop-service-message" />
+        <module name="pawnshop-service-user" />
+        <module name="pawnshop-commons-mapper" />
+        <module name="test" />
+        <module name="pawnshop-commons-model" />
+        <module name="pawnshop-commons" />
+        <module name="pawnshop-service-admin" />
+        <module name="pawnshop-commons-cloud" />
+        <module name="pawnshop-service-gateway" />
+        <module name="pawnshop-service-cms" />
+        <module name="pawnshop-service-oauth2" />
+        <module name="pawnshop-service-email" />
+        <module name="pawnshop-static-backend" />
+        <module name="QRcode" />
+        <module name="translate" />
+      </profile>
+    </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="cloud" target="1.8" />
+      <module name="pawnshop-commons" target="1.8" />
+      <module name="pawnshop-commons-cloud" target="1.8" />
+      <module name="pawnshop-commons-mapper" target="1.8" />
+      <module name="pawnshop-commons-model" target="1.8" />
+      <module name="pawnshop-datebases" target="1.8" />
       <module name="pawnshop-dependencies" target="1.8" />
+      <module name="pawnshop-eureka" target="1.8" />
+      <module name="pawnshop-service-admin" target="1.8" />
+      <module name="pawnshop-service-cms" target="1.8" />
+      <module name="pawnshop-service-email" target="1.8" />
+      <module name="pawnshop-service-gateway" target="1.8" />
+      <module name="pawnshop-service-goods" target="1.8" />
+      <module name="pawnshop-service-message" target="1.8" />
+      <module name="pawnshop-service-oauth2" target="1.8" />
+      <module name="pawnshop-service-user" target="1.8" />
+      <module name="pawnshop-service-user-api" target="1.8" />
+      <module name="pawnshop-service-user-provider" target="1.8" />
+      <module name="pawnshop-static-backend" target="1.8" />
+      <module name="QRcode" target="1.8" />
+      <module name="test" target="1.8" />
+      <module name="translate" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="pawnshop-commons" options="-parameters" />
+      <module name="pawnshop-commons-cloud" options="-parameters" />
+      <module name="pawnshop-commons-mapper" options="-parameters" />
+      <module name="pawnshop-commons-model" options="-parameters" />
+      <module name="pawnshop-datebases" options="-parameters" />
+      <module name="pawnshop-eureka" options="-parameters" />
+      <module name="pawnshop-service-admin" options="-parameters" />
+      <module name="pawnshop-service-cms" options="-parameters" />
+      <module name="pawnshop-service-email" options="-parameters" />
+      <module name="pawnshop-service-gateway" options="-parameters" />
+      <module name="pawnshop-service-goods" options="-parameters" />
+      <module name="pawnshop-service-message" options="-parameters" />
+      <module name="pawnshop-service-oauth2" options="-parameters" />
+      <module name="pawnshop-service-user" options="-parameters" />
+      <module name="pawnshop-service-user-api" options="-parameters" />
+      <module name="pawnshop-service-user-provider" options="-parameters" />
+      <module name="pawnshop-static-backend" options="-parameters" />
+    </option>
   </component>
 </project>
