@@ -1,6 +1,6 @@
 package cn.ckh2019.pawnshop.service.message.service.impl;
 
-import cn.ckh2019.pawnshop.service.message.service.MessageService;
+import cn.ckh2019.pawnshop.service.message.service.SmsService;
 import com.github.qcloudsms.SmsSingleSender;
 import com.github.qcloudsms.SmsSingleSenderResult;
 import com.github.qcloudsms.httpclient.HTTPException;
@@ -13,8 +13,8 @@ import java.io.IOException;
  * @author Chen Kaihong
  * 2020-02-14 17:02
  */
-@Service("messageService")
-public class MessageServiceImpl implements MessageService {
+@Service("smsService")
+public class SmsServiceImpl implements SmsService {
 
     /**
      *  短信应用 SDK AppID
@@ -39,7 +39,7 @@ public class MessageServiceImpl implements MessageService {
     public void sendMessage(String phone, String content) {
 
         try {
-            String[] params = {"a gay"};
+            String[] params = {content};
             SmsSingleSender ssender = new SmsSingleSender(APP_ID, APP_KEY);
             SmsSingleSenderResult result = ssender.sendWithParam("86", phone,
                     TEMPLATE_ID, params, SMS_SIGN, "", "");

@@ -1,4 +1,4 @@
-package cn.ckh2019.pawnshop.service.user.config;
+package cn.ckh2019.pawnshop.service.message.config;
 
 import org.springframework.amqp.core.*;
 import org.springframework.beans.factory.annotation.Qualifier;

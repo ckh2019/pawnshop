@@ -7,14 +7,40 @@
         <groupId>cn.ckh2019</groupId>
         <artifactId>pawnshop-dependencies</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../pawnshop-dependencies/pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>cn.ckh2019.pawnshop</groupId>
-    <artifactId>pawnshop-cms</artifactId>
+    <artifactId>pawnshop-service-cms</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
+
+        <dependency>
+            <groupId>cn.ckh2019</groupId>
+            <artifactId>pawnshop-commons-cloud</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-mongodb</artifactId>
+        </dependency>
+
+
+
+
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+
 
     </dependencies>
 

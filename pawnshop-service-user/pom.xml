@@ -12,7 +12,7 @@
     </parent>
 
     <groupId>cn.ckh2019</groupId>
-    <artifactId>pawnshop-service-user-consumer</artifactId>
+    <artifactId>pawnshop-service-user</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
@@ -24,15 +24,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!--<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>-->
-
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-spring</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -40,29 +31,42 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.session</groupId>
-            <artifactId>spring-session-data-redis</artifactId>
-            <version>2.1.8.RELEASE</version>
-        </dependency>
-
-        <dependency>
             <groupId>cn.ckh2019</groupId>
-            <artifactId>pawnshop-service-user-api</artifactId>
+            <artifactId>pawnshop-commons-cloud</artifactId>
             <version>${project.parent.version}</version>
-        </dependency>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-security</artifactId>
+                </exclusion>
 
+            </exclusions>
+        </dependency>
 
         <dependency>
-            <groupId>cn.ckh2019</groupId>
-            <artifactId>pawnshop-commons-dubbo</artifactId>
-            <version>${project.parent.version}</version>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-security</artifactId>
+            <version>2.1.3.RELEASE</version>
         </dependency>
 
         <dependency>
-            <groupId>cn.ckh2019</groupId>
-            <artifactId>pawnshop-static-backend</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-oauth2</artifactId>
+            <version>2.1.3.RELEASE</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.security</groupId>
+                    <artifactId>spring-security-jwt</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-jwt</artifactId>
+            <version>1.0.10.RELEASE</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -71,7 +75,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>cn.ckh2019.pawnshop.service.user.consumer.PawnshopServiceUserConsumerApplication</mainClass>
+                    <mainClass>cn.ckh2019.pawnshop.service.user.PawnshopServiceUserApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

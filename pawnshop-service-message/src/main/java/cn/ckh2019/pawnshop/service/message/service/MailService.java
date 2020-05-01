@@ -1,4 +1,4 @@
-package cn.ckh2019.pawnshop.service.email.service;
+package cn.ckh2019.pawnshop.service.message.service;
 
 /**
  * @author Chen Kaihong

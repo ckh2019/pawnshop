@@ -1,4 +1,4 @@
-package cn.ckh2019.pawnshop.service.admin.config;
+package cn.ckh2019.pawnshop.service.goods.config;
 
 import org.springframework.amqp.core.*;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -62,6 +62,53 @@ public class RabbitmqConfig {
     @Bean
     public Binding BINDING_QUEUE_INFORM_EMAIL(@Qualifier(QUEUE_INFORM_EMAIL) Queue queue, @Qualifier(EXCHANGE_TOPICS_INFORM) Exchange exchange) {
         return BindingBuilder.bind(queue).to(exchange).with("inform.#.email.#").noargs();
+    }
+
+}
+
+ class Rabbitmq1Config2 {
+
+    public static final String MESSAGE_EMAIL = "message.email";
+
+    public static final String MESSAGE_SMS = "message.sms";
+
+    public static final String MESSAGE_EMAIL_SMS = "message.email.sms";
+
+
+    public static final String QUEUE_EMAIL = "queue_email";
+    public static final String QUEUE_SMS = "queue_sms";
+    public static final String EXCHANGE_TOPICS_MESSAGE="exchange";
+
+    /**
+     * 交换机配置
+     */
+    @Bean(EXCHANGE_TOPICS_MESSAGE)
+    public Exchange getExchange() {
+        return ExchangeBuilder.topicExchange(EXCHANGE_TOPICS_MESSAGE).build();
+    }
+
+    //声明队列
+    @Bean(QUEUE_SMS)
+    public Queue getQueueSms() {
+        return new Queue(QUEUE_SMS);
+    }
+
+    //声明队列
+    @Bean(QUEUE_EMAIL)
+    public Queue getQueueEmail() {
+        return new Queue(QUEUE_EMAIL);
+    }
+
+    /**
+     * 绑定队列到交换机 .
+     */
+    @Bean
+    public Binding BINDING_QUEUE_INFORM_SMS(@Qualifier(QUEUE_SMS) Queue q, @Qualifier(EXCHANGE_TOPICS_MESSAGE) Exchange e) {
+        return BindingBuilder.bind(q).to(e).with("inform.#.sms.#").noargs();
+    }
+    @Bean
+    public Binding BINDING_QUEUE_INFORM_EMAIL(@Qualifier(QUEUE_EMAIL) Queue q, @Qualifier(EXCHANGE_TOPICS_MESSAGE) Exchange e) {
+        return BindingBuilder.bind(q).to(e).with("inform.#.email.#").noargs();
     }
 
 }

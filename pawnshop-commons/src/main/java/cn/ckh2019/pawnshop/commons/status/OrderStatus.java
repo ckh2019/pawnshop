@@ -1,4 +1,4 @@
-package cn.ckh2019.pawnshop.commons.bean;
+package cn.ckh2019.pawnshop.commons.status;
 
 /**
  * @author Chen Kaihong

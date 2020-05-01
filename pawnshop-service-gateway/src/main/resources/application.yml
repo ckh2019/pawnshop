@@ -1,50 +1,36 @@
 spring:
   application:
-    name: pawnshop-service-email
+    name: pawnshop-service-gateway
 
   cloud:
     compatibility-verifier:
       enabled: false
+    gateway:
+      routes:
+        - id: oauth2-service
+          uri: http://www.ckh.com:8101
+          predicates:
+            - Path=/oauth/**
+        - id: user-service
+          uri: http://www.ckh.com:8701
+          predicates:
+            - Path=/user/**
+        - id: goods-service
+          uri: http://www.ckh.com:8602
+          predicates:
+            - Path=/goods/**, /order/**
+        - id: page-service
+          uri: http://www.ckh.com:9001
+          predicates:
+            - Path=/page/**, /assets/**
+        - id: admin-service
+          uri: http://www.ckh.com:8301
+          predicates:
+            - Path=/pageContent/**, /admin/**
 
-  datasource:
-    druid:
-      url: jdbc:mysql://localhost:3306/pawnshop?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT
-      username: ckh
-      password: 123456
-      initial-size: 1
-      min-idle: 1
-      max-active: 20
-      test-on-borrow: true
-      driver-class-name: com.mysql.cj.jdbc.Driver
-  mvc:
-    view:
-      prefix: /WEB-INF/view/
-      suffix: .jsp
-  mail:
-    host: smtp.126.com
-    username: chenkh2015@126.com
-    password: 150559a
-    default-encoding: utf-8
-    properties:
-      mail:
-        smtp:
-          ssl:
-            enable: true
-
-
-eureka:
-  client:
-    register-with-eureka: true # 服务注册,是否将自己注册到Rureka服务中
-    fetch-registry: true   #服务发现
-    serviceUrl:     # Eureka客户端和 Eureka服务端的交互地址,高可用状态配置对方的地址,单机状态配置自己的地址
-      defaultZone: ${EUREKA_SERVER:http://www.ckh.com:8401/eureka/}
-  instance:
-    prefer-ip-address: true # 将自己ip注册到 Eureka 服务中
-    ip-address: ${IP_ADDRESS:127.0.0.1}
-    instance-id: ${spring.application.name}:${server.port}
 
 server:
-  port: 8701
+  port: 80
 
 services:
   versions:

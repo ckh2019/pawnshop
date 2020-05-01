@@ -9,18 +9,18 @@
         <relativePath>../pawnshop-dependencies/pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
 
-    <artifactId>pawnshop-commons-dubbo</artifactId>
+    <artifactId>pawnshop-service-user-api</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
 
         <dependency>
             <groupId>cn.ckh2019</groupId>
-            <artifactId>pawnshop-commons</artifactId>
+            <artifactId>pawnshop-commons-domain</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
 
-        <dependency>
+       <!-- <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
             <version>${boot-spring.version}</version>
@@ -51,7 +51,7 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
             <version>${cloud-hystrix.version}</version>
-        </dependency>
+        </dependency>-->
 
 
     </dependencies>

@@ -22,29 +22,36 @@
         <boot-spring.version>2.1.6.RELEASE</boot-spring.version>
         <boot-dubbo.version>0.2.0</boot-dubbo.version>
         <boot-mapper.version>2.0.2</boot-mapper.version>
-        <boot-pagehelper.version>1.2.5</boot-pagehelper.version>
+        <boot-pagehelper.version>1.2.12</boot-pagehelper.version>
         <boot-druid.version>1.1.10</boot-druid.version>
+        <boot-shiro.version>1.4.0</boot-shiro.version>
 
         <cloud-hystrix.version>2.0.1.RELEASE</cloud-hystrix.version>
+        <cloud-eureka.version>2.0.2.RELEASE</cloud-eureka.version>
+        <cloud-ribbon.version>1.4.6.RELEASE</cloud-ribbon.version>
+        <cloud-openfeign.version>2.0.4.RELEASE</cloud-openfeign.version>
+        <cloud-gateway.version>2.1.2.RELEASE</cloud-gateway.version>
 
         <kryo.version>0.42</kryo.version>
         <mysql.version>8.0.12</mysql.version>
+
+        <data-mongodb.version>2.1.6.RELEASE</data-mongodb.version>
+        <commons-io.version>2.6</commons-io.version>
+
+        <fastjson.version>1.2.46</fastjson.version>
+
+        <okhttp.version>3.14.4</okhttp.version>
+        <swagger.version>2.9.2</swagger.version>
+        <lombok.version>1.16.18</lombok.version>
+
+        <qcloudsms.version>1.0.6</qcloudsms.version>
 
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>com.alibaba.boot</groupId>
-                <artifactId>dubbo-spring-boot-starter</artifactId>
-                <version>${boot-dubbo.version}</version>
-            </dependency>
 
-            <dependency>
-                <groupId>com.alibaba.boot</groupId>
-                <artifactId>dubbo-spring-boot-actuator</artifactId>
-                <version>${boot-dubbo.version}</version>
-            </dependency>
+
 
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -61,14 +68,16 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-test</artifactId>
+                <version>${boot-spring.version}</version>
                 <scope>test</scope>
             </dependency>
 
-            <dependency>
+            <!--<dependency>
                 <groupId>tk.mybatis</groupId>
                 <artifactId>mapper-spring-boot-starter</artifactId>
                 <version>${boot-mapper.version}</version>
             </dependency>
+-->
 
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
@@ -77,13 +86,13 @@
             </dependency>
 
             <dependency>
-                <groupId>org-springframework-cloud</groupId>
+                <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
                 <version>${cloud-hystrix.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org-springframework-cloud</groupId>
+                <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
                 <version>${cloud-hystrix.version}</version>
             </dependency>
@@ -106,8 +115,134 @@
                 <version>${boot-druid.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-mongodb</artifactId>
+                <version>${data-mongodb.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-amqp</artifactId>
+                <version>${boot-spring.version}</version>
+            </dependency>
 
 
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+                <version>${cloud-eureka.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+                <version>${cloud-eureka.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-ribbon</artifactId>
+                <version>${cloud-ribbon.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-openfeign</artifactId>
+                <version>${cloud-openfeign.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-gateway</artifactId>
+                <version>${cloud-gateway.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${okhttp.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+
+            <!-- lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-mail</artifactId>
+                <version>${boot-spring.version}</version>
+            </dependency>
+
+            <!-- spring security的依赖 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
+                <version>${boot-spring.version}</version>
+            </dependency>
+
+            <!-- spring security的依赖 -->
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-jwt</artifactId>
+                <version>1.0.10.RELEASE</version>
+            </dependency>
+
+           <dependency>
+                <groupId>org.springframework.security.oauth2.boot</groupId>
+                <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+                <version>${boot-spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-security</artifactId>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-oauth2</artifactId>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.qcloudsms</groupId>
+                <artifactId>qcloudsms</artifactId>
+                <version>${qcloudsms.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>3.2.0</version>
+            </dependency>
 
 
         </dependencies>

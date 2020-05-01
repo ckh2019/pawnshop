@@ -2,39 +2,52 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.ckh2019.pawnshop.commons.mapper.GoodsMapper">
-    <!--    @TableId
-    private String gid;
+<mapper namespace="cn.ckh2019.pawnshop.commons.mapper.OrderMapper">
+    <!--     @TableId(type = IdType.AUTO)
+    private Integer oid;
+    /**
+     * 价格id
+     */
+    private Integer pid;
 
-    private String name;
-
-    @TableField("putawayDate")
-    private Date putawayDate;
-
-    @TableField("goodsPhoto")
-    private String goodsPhoto;
+    private Integer uid;
 
     /**
-     * 商户id
+     * 当铺id
      */
-    private Integer bid;-->
-    <select id="queryGoodsByAnd" resultType="goods">
-        select * from goods
+    private Integer bid;
+
+    /**
+     * 商品id
+     */
+    private String gid;
+
+    private Integer status;
+
+    private Double price;-->
+    <select id="queryOrderByAnd" resultType="order">
+        select * from orders
         <where>
-            <if test="gid!=null and gid!=''">
-                and gid = #{gid}
+            <if test="oid!=null">
+                and oid = #{oid}
             </if>
-            <if test="name!=null and name!=''">
-                and name = #{name}
+            <if test="pid!=null">
+                and pid = #{pid}
             </if>
-            <if test="bid!=null and bid!=''">
+            <if test="uid!=null">
+                and uid = #{uid}
+            </if>
+            <if test="bid!=null">
                 and bid = #{bid}
+            </if>
+            <if test="gid!=null and gid != ''">
+                and gid = #{gid}
             </if>
             <if test="status!=null">
                 and status = #{status}
             </if>
         </where>
-        order by putawayDate desc
+        order by seller_start_order_date desc
     </select>
 
 </mapper>

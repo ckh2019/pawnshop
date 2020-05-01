@@ -1,4 +1,4 @@
-package cn.ckh2019.pawnshop.service.user.consumer.controller;
+package cn.ckh2019.pawnshop.service.user.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

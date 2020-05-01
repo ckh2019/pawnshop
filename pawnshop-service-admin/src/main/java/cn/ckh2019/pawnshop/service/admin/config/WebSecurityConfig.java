@@ -1,4 +1,4 @@
-package cn.ckh2019.pawnshop.service.user.config;
+package cn.ckh2019.pawnshop.service.admin.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -40,7 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginProcessingUrl("/login")
-                .successForwardUrl("/page/index.html");
+                .successForwardUrl("/page/admin/index.html");
     }
 
 }

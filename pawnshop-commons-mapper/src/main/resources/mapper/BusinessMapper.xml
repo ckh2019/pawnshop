@@ -14,7 +14,7 @@
 
     private String email;
 
-    @TableField("publishDate")
+    @TableField("creditPhoto")
     private String creditPhoto;
 
     @TableField("idCardPhoto")
@@ -36,11 +36,14 @@
             <if test="credit!=null and credit!=''">
                 and credit = #{credit}
             </if>
+            <if test="name!=null and name!=''">
+                and name like '%${name}%';
+            </if>
             <if test="email!=null and email!=''">
                 and email = #{email}
             </if>
-            <if test="publishDate!=null and publishDate!=''">
-                and publishDate = #{publishDate}
+            <if test="creditPhoto!=null and creditPhoto!=''">
+                and creditPhoto = #{creditPhoto}
             </if>
             <if test="idCardPhoto!=null and idCardPhoto!=''">
                 and idCardPhoto = #{idCardPhoto}

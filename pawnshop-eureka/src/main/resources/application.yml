@@ -1,67 +1,21 @@
+server:
+  port: 8401
+
 spring:
   application:
-    name: pawnshop-service-cms
-  data:
-    mongodb:
-      host: localhost
-      database: test
-  rabbitmq:
-    host: 129.211.17.8
-    port: 5672
-    username: admin
-    password: admin
+    name: pawnshop-eureka
 
-server:
-  port: 8502
-
-services:
-  versions:
-    user:
-      v1: 1.0
-
-
-
-#dubbo
-dubbo:
-  scan:
-    basePackages: cn.ckh2019.pawnshop.service.user.consumer.controller
-  application:
-    id: pawnshop-service-user-consumer
-    name: pawnshop-service-user-consumer
-  protocol:
-    id: dubbo
-    name: dubbo
-    serialization: kryo
-  registry:
-    id: zookeeper
-    address: zookeeper://129.211.17.8:2181
-
-
-endpoints:
-  dubbo:
-    enabled: true
-
-management:
+eureka:
+  client:
+    register-with-eureka: false # 服务注册,是否将自己注册到Rureka服务中
+    fetch-registry: false   #服务发现
+    serviceUrl:     # Eureka客户端和 Eureka服务端的交互地址,高可用状态配置对方的地址,单机状态配置自己的地址
+      defaultZone: ${EUREKA_SERVER:http://cloud.ckh.com:8401/eureka/}
   server:
-    port: 8701
-  endpoint:
-    dubbo:
-      enabled: true
-    dubbo-shutdown:
-      enabled: true
-    dubbo-configs:
-      enabled: true
-    dubbo-services:
-      enabled: true
-    dubbo-references:
-      enabled: true
-    dubbo-properties:
-      enabled: true
-  health:
-    dubbo:
-      status:
-        default: memory
-  endpoints:
-    web:
-      exposure:
-        include: "*"
+    enable-self-preservation: false  #是否开始自我保护模式
+    eviction-interval-timer-in-ms: 60000  #服务注册表的清理间隔(默认60*1000)
+#  instance:
+#    hostname: ${EUREKA_DOMAIN:www.ckh.com}
+
+
+

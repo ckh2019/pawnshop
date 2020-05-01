@@ -1,6 +1,7 @@
-package cn.ckh2019.pawnshop.service.email.service.impl;
+package cn.ckh2019.pawnshop.service.message.service.impl;
 
-import cn.ckh2019.pawnshop.service.email.service.MailService;
+
+import cn.ckh2019.pawnshop.service.message.service.MailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +37,5 @@ public class MailServiceImpl implements MailService {
         } catch (Exception e) {
             logger.error("发送简单邮件时发生异常！", e);
         }
-
-
     }
 }

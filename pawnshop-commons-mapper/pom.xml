@@ -9,14 +9,35 @@
         <relativePath>../pawnshop-dependencies/pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
 
-    <artifactId>pawnshop-commons-domain</artifactId>
+    <artifactId>pawnshop-commons-mapper</artifactId>
     <packaging>jar</packaging>
     <dependencies>
+
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.2.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+        </dependency>
 
 
         <dependency>
             <groupId>cn.ckh2019</groupId>
-            <artifactId>pawnshop-commons</artifactId>
+            <artifactId>pawnshop-commons-model</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
 

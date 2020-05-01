@@ -8,5 +8,61 @@
     <artifactId>pawnshop-service-message</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <parent>
+        <groupId>cn.ckh2019</groupId>
+        <artifactId>pawnshop-dependencies</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.vaadin.external.google</groupId>
+                    <artifactId>android-json</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+
+        <dependency>
+            <groupId>cn.ckh2019</groupId>
+            <artifactId>pawnshop-commons-cloud</artifactId>
+            <version>${project.parent.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-security</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>cn.ckh2019</groupId>
+                    <artifactId>pawnshop-commons-mapper</artifactId>
+                </exclusion>
+
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.qcloudsms</groupId>
+            <artifactId>qcloudsms</artifactId>
+            <version>1.0.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+
+        </dependency>
+
+
+
+
+
+
+    </dependencies>
+
 
 </project>

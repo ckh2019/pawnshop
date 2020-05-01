@@ -1,4 +1,4 @@
-package cn.ckh2019.pawnshop.commons.bean;
+package cn.ckh2019.pawnshop.commons.status;
 
 /**
  * @author Chen Kaihong
@@ -7,9 +7,9 @@ package cn.ckh2019.pawnshop.commons.bean;
 
 public class BusinessStatus {
 
-    private static final int TO_BE_REVIEW = 0;
+    public static final int TO_BE_REVIEW = 0;
 
-    private static final int NORMAL = 1;
+    public static final int NORMAL = 1;
 
-    private static final int FORBID = 2;
+    public static final int FORBID = 2;
 }

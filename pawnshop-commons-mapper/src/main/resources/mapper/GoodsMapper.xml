@@ -2,53 +2,42 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.ckh2019.pawnshop.commons.mapper.BusinessMapper">
-    <!--@Id
-    private Integer bid;
+<mapper namespace="cn.ckh2019.pawnshop.commons.mapper.GoodsMapper">
+    <!--    @TableId
+    private String gid;
 
-    private String phone;
+    private String name;
 
-    private String corporation;
+    @TableField("putawayDate")
+    private Date putawayDate;
 
-    private String credit;
+    @TableField("goodsPhoto")
+    private String goodsPhoto;
 
-    private String email;
-
-    @TableField("creditPhoto")
-    private String creditPhoto;
-
-    @TableField("idCardPhoto")
-    private String idCardPhoto;
-
-    private Integer status;-->
-    <select id="queryBusinessByAnd" resultType="business">
-        select * from business
+    /**
+     * 商户id
+     */
+    private Integer bid;-->
+    <select id="queryGoodsByAnd" resultType="goods">
+        select * from goods
         <where>
-            <if test="bid!=null">
-                and uid = #{uid}
+            <if test="gid!=null and gid!=''">
+                and gid = #{gid}
             </if>
-            <if test="phone!=null and phone!=''">
-                and phone = #{phone}
+            <if test="name!=null and name!=''">
+                and name like '%${name}%';
             </if>
-            <if test="corporation!=null and corporation!=''">
-                and corporation = #{corporation}
+            <if test="bname!=null and bname!=''">
+                and bname like '%${bname}%';
             </if>
-            <if test="credit!=null and credit!=''">
-                and credit = #{credit}
-            </if>
-            <if test="email!=null and email!=''">
-                and email = #{email}
-            </if>
-            <if test="creditPhoto!=null and creditPhoto!=''">
-                and creditPhoto = #{creditPhoto}
-            </if>
-            <if test="idCardPhoto!=null and idCardPhoto!=''">
-                and idCardPhoto = #{idCardPhoto}
+            <if test="bid!=null and bid!=''">
+                and bid = #{bid}
             </if>
             <if test="status!=null">
                 and status = #{status}
             </if>
         </where>
+        order by putawayDate desc
     </select>
 
 </mapper>

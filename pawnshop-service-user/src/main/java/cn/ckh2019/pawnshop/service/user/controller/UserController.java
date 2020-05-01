@@ -1,40 +1,61 @@
-package cn.ckh2019.pawnshop.service.user.consumer.controller;
+package cn.ckh2019.pawnshop.service.user.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import cn.ckh2019.pawnshop.commons.bean.Result;
+import cn.ckh2019.pawnshop.commons.model.dto.RegisterDto;
+import cn.ckh2019.pawnshop.service.user.service.UserService;
+import com.mysql.cj.protocol.Resultset;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 /**
  * @author Chen Kaihong
  * 2019-07-31 14:33
  */
 
-@Controller
+@RestController
 @RequestMapping("user")
 public class UserController {
 
+    @Autowired
+    UserService userService;
 
-    @RequestMapping("/")
-    public String access() {
-        return "user/main";
+    @GetMapping("/sendRegisterCheckMeg/{phone}")
+    public Result sendRegisterCheckMeg (@PathVariable String phone) {
+        return userService.sendRegisterCheckMeg(phone);
     }
 
-    @RequestMapping("main")
-    public String main(Model model) {
-        List<User> list = userService.selectAll();
-        model.addAttribute("list",list);
-        return "user/main";
+    @PostMapping("/register")
+    public Result register(RegisterDto registerDto) {
+        return userService.register(registerDto);
+    }
+
+    @GetMapping("/test")
+    @PreAuthorize("hasAuthority('p1')")
+    public Result test(RegisterDto registerDto) {
+        return new Result();
+    }
+
+    @GetMapping("/test2")
+    @PreAuthorize("isAnonymous()")
+    public Result test2(RegisterDto registerDto) {
+        return new Result();
+    }
+
+    @GetMapping("/sendResetMeg/{principal}/{method}")
+    public Result sendResetMeg(@PathVariable String principal, @PathVariable Integer method) {
+        return userService.sendResetMeg(principal, method);
+    }
+
+    public Result resetPwd (String principal, Integer method, String checkCode, String password) {
+        return userService.resetPwd(principal, method, checkCode, password);
     }
 
 
 
-    @RequestMapping("toLogin")
-    public String toLogin(Model model) {
-        return "user/login";
-    }
+
+
 
 
 }
