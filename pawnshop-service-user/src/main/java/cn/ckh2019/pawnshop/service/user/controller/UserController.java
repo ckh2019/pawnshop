@@ -48,6 +48,7 @@ public class UserController {
         return userService.sendResetMeg(principal, method);
     }
 
+    @PostMapping("/resetPwd")
     public Result resetPwd (String principal, Integer method, String checkCode, String password) {
         return userService.resetPwd(principal, method, checkCode, password);
     }
