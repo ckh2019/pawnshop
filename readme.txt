@@ -1,5 +1,3 @@
 readme.txt
-test
-dev
-dev
+3
 
