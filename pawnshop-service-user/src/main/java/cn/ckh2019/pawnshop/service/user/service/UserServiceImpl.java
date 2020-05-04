@@ -98,7 +98,7 @@ public class UserServiceImpl implements  UserService{
     }
 
     @Override
-    public Result resetPwd(String principal, Integer method, String checkCode, String password) {
+    public Result resetPwd(String principal, String checkCode, String password) {
         Result result = new Result();
         if (checkCode != null
                 && principal != null

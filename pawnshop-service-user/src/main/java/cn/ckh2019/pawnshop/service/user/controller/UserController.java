@@ -49,8 +49,8 @@ public class UserController {
     }
 
     @PostMapping("/resetPwd")
-    public Result resetPwd (String principal, Integer method, String checkCode, String password) {
-        return userService.resetPwd(principal, method, checkCode, password);
+    public Result resetPwd (String principal, String checkCode, String password) {
+        return userService.resetPwd(principal, checkCode, password);
     }
 
 

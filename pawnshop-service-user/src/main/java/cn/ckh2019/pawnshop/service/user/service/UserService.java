@@ -14,5 +14,5 @@ public interface UserService {
 
     Result sendResetMeg(String principal, Integer method);
 
-    Result resetPwd(String principal, Integer method, String checkCode, String password);
+    Result resetPwd(String principal, String checkCode, String password);
 }
